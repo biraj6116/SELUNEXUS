@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right btn" }))
+    {
+    @Html.AntiForgeryToken()
+
+<<<<<<< HEAD
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    &nbsp;&nbsp;
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>
+=======
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+    </ul>
+>>>>>>> 34c073f4e9850c6389c66d838a7b5b15bd1c9bad
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        
+        <li>
+            <a href="@Url.Action("Register", "Account")" class="btn btn-info">
+                <i class="fas fa-user-plus"></i> Register
+            </a>
+        </li>
+        &nbsp; &nbsp;
+        <li>
+            <a href="@Url.Action("Login", "Account")" class="btn btn-success">
+                <i class="fas fa-user"></i> Login
+            </a>
+        </li>
+    </ul>
+}

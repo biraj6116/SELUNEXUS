@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (Request.IsAuthenticated)
+{
+    <h1 class="text-center"> Recent Services </h1>
+    <hr/>
+    <div class="alert alert-info">
+        No Services available yet!! But You can add one for yourself
+    </div>
+    <a href="@Url.Action("Create", "Services")" class="btn btn-block btn-warning"><i class="fas fa-plus"></i> Add a service</a>
+}
+else
+{
+    <div class="info">
+        <h1> Need Help!</h1>
+        <p class="message1">Just Sign Up and Explore the campus for assistance.</p>
+    </div>
+    /**/
+    <div>
+        <a class="btn btn-medium" href=@Url.Action("Register","Account")>
+            Sign Up!
+        </a>
+    </div>
+    /**/
+    <div class="slides">
+        <!-- Slide Show -->
+        <section>
+            <img class="mySlides" src="https://png2.kisspng.com/20180327/yvq/kisspng-sat-student-graduate-university-college-study-skil-students-5ab9d90254c7a2.5175713015221291543473.png">
+            <img class="mySlides" src="https://images.pond5.com/female-lecturer-teaching-classmates-computer-footage-010897293_prevstill.jpeg">
+            <img class="mySlides" src="https://media.gettyimages.com/photos/college-students-helping-out-in-a-food-drive-picture-id595070455">
+        </section>
+    </div>
+    /**/
+
+
+    <script>
+        // Automatic Slideshow - change image every 3 seconds
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 5000);
+        }
+
+        function myfunction1() {
+            window.location = "http://localhost:64900/Account/Login";
+        }
+    </script>
+}
